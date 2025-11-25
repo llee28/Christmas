@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Christmas Gift Exchange</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>🎄 Christmas Gift Exchange</h1>
+    <div id="dateNow"></div>
+  </header>
+
+  <main>
+    <aside class="panel" id="authPanel">
+      <h2>Account</h2>
+      <div id="notLogged">
+        <input id="usernameInput" placeholder="Choose a username" />
+        <button id="createBtn">Create & Login</button>
+        <button id="loginBtn">Login</button>
+      </div>
+
+      <div id="userArea" class="hidden">
+        <div><strong id="curUser"></strong></div>
+        <div>Coins: <span id="coinCount">0</span> 🎁</div>
+        <button id="logoutBtn">Logout</button>
+        <button id="devOpenNow" title="Dev: open inbox gifts now">Open now (dev)</button>
+      </div>
+    </aside>
+
+    <section class="panel">
+      <h2>Minigames</h2>
+      <div class="games">
+        <div class="game-card">
+          <h3>Snowflake Clicker</h3>
+          <p>Click the snowflake to earn 1 coin each (try 10 times).</p>
+          <button id="playClicker">Play</button>
+        </div>
+
+        <div class="game-card">
+          <h3>Find Santa</h3>
+          <p>Pick a card. Find Santa to earn 10 coins!</p>
+          <button id="playFindSanta">Play</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Catalog</h2>
+      <div id="catalog" class="catalog-grid"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Inbox (Locked until Christmas)</h2>
+      <div id="inboxList" class="gift-list"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Collection</h2>
+      <div id="collectionList" class="gift-list"></div>
+    </section>
+  </main>
+
+  <!-- Modals -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <button class="close" id="modalClose">✖</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <footer>
+    <small>Local demo — all data stored in your browser (localStorage). For production, move data to a server.</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
