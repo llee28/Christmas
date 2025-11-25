@@ -243,11 +243,21 @@ function updateUI() {
 }
 
 /* Modal helpers */
+/* Modal helpers */
 function showModal(html) {
   el('#modalBody').innerHTML = html;
-  el('#modal').classList.remove('hidden');
+  // Remove both the 'hidden' attribute and the 'hidden' class to make sure the modal becomes visible
+  const modal = el('#modal');
+  modal.classList.remove('hidden');
+  modal.removeAttribute('hidden');
 }
-function closeModal() { el('#modal').classList.add('hidden'); el('#modalBody').innerHTML = ''; }
+function closeModal() {
+  const modal = el('#modal');
+  modal.classList.add('hidden');
+  // add the HTML5 hidden attribute as a fallback
+  modal.setAttribute('hidden', 'true');
+  el('#modalBody').innerHTML = '';
+}
 
 /* Send modal */
 function openSendModal(item) {
