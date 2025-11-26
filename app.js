@@ -2,7 +2,7 @@
 // Data storage keys
 const STORAGE_KEY = 'cmas_users_v1';
 const CUR_USER_KEY = 'cmas_current_v1';
-el('#modalClose').addEventListener('click', closeModal);
+
 
 const catalog = [
   { id: 'c1', name: 'Candy Cane', emoji: '🍬', cost: 5 },
@@ -148,6 +148,7 @@ function devOpenAllInbox() {
 
 const el = sel => document.querySelector(sel);
 const els = sel => Array.from(document.querySelectorAll(sel));
+el('#modalClose').addEventListener('click', closeModal);
 
 function updateDate() {
   const now = getNow();
