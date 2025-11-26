@@ -148,7 +148,7 @@ function devOpenAllInbox() {
 
 const el = sel => document.querySelector(sel);
 const els = sel => Array.from(document.querySelectorAll(sel));
-el('#modalClose').addEventListener('click', closeModal);
+
 
 function updateDate() {
   const now = getNow();
