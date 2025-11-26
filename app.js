@@ -367,18 +367,19 @@ function openFindSantaModal() {
 /* Wiring UI */
 function wire() {
   // auth
-  el('#createBtn').addEventListener('click', () => {
-    const v = el('#usernameInput').value.trim();
-    if (!v) { alert('Enter a username'); return; }
-    const r = createUser(v);
-    if (!r.ok) alert(r.msg || 'Error creating user');
-  });
-  el('#loginBtn').addEventListener('click', () => {
-    const v = el('#usernameInput').value.trim();
-    if (!v) { alert('Enter username'); return; }
-    const r = loginUser(v);
-    if (!r.ok) alert(r.msg || 'Login failed');
-  });
+el('#createBtn').addEventListener('click', () => {
+  const username = el('#usernameInput').value;
+  const password = el('#passwordInput').value;
+  const res = createUser(username, password);
+  if (!res.ok) alert(res.msg);
+});
+
+el('#loginBtn').addEventListener('click', () => {
+  const username = el('#usernameInput').value;
+  const password = el('#passwordInput').value;
+  const res = loginUser(username, password);
+  if (!res.ok) alert(res.msg);
+});
   el('#logoutBtn').addEventListener('click', logout);
   el('#devOpenNow').addEventListener('click', () => {
     if (!currentUser) { alert('Login first'); return; }
