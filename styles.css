@@ -33,7 +33,7 @@ main{
   box-shadow: 0 6px 18px rgba(0,0,0,0.5);
 }
 aside.panel{height:fit-content; position:sticky; top:18px;}
-.hidden{display:none;}
+
 #authPanel input{
   width:100%;
   padding:8px;
@@ -89,3 +89,4 @@ small{color:var(--muted);}
 .info{color:var(--muted);font-size:13px;}
 label{display:block;margin-top:8px;font-size:13px;color:var(--muted)}
 input[type="text"], input[type="number"]{padding:8px;border-radius:6px;border:1px solid rgba(255,255,255,0.04);width:100%;background:transparent;color:inherit}
+.hidden{display:none;}
