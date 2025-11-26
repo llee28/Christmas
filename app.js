@@ -37,22 +37,27 @@ function ensureUserExists(username) {
   return users[u];
 }
 
-function createUser(username) {
+function createUser(username, password) {
   username = username.trim();
+  password = password.trim();
   if (!username) return { ok:false, msg:'Username required' };
+  if (!password) return { ok:false, msg:'Password required' };
   const key = username.toLowerCase();
   if (users[key]) return { ok:false, msg:'Username already exists' };
-  users[key] = { username, coins: 0, inbox: [], collection: [] };
+  users[key] = { username, password, coins: 0, inbox: [], collection: [] };
   currentUser = key;
   save();
   updateUI();
   return { ok:true };
 }
 
-function loginUser(username) {
+function loginUser(username, password) {
   username = username.trim();
+  password = password.trim();
   const key = username.toLowerCase();
-  if (!users[key]) return { ok:false, msg:'No such user' };
+  const user = users[key];
+  if (!user) return { ok:false, msg:'No such user' };
+  if (user.password !== password) return { ok:false, msg:'Incorrect password' };
   currentUser = key;
   save();
   updateUI();
